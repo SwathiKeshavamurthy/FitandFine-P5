@@ -12,6 +12,8 @@ class Profile(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_profile_image'
     )
+    email = models.EmailField(blank=True)
+    birthday = models.DateField(blank=True, null=True)
 
     class Meta:
         ordering = ['-created_at']
