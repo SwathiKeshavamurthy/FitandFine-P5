@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from datetime import date, time
+
 
 class DailyRoutine(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -29,3 +32,10 @@ class DailyRoutine(models.Model):
 
     def __str__(self):
         return f"{self.person_name or self.user.username}'s routine on {self.date}"
+
+    def clean(self):
+        super().clean() 
+        if self.water_intake > 10000:
+            raise ValidationError("Water intake is unrealistically high.")
+        if self.date > date.today():
+            raise ValidationError("The date cannot be in the future.")
