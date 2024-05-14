@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'challenges',
+    'dailyroutines',
 ]
 
 MIDDLEWARE = [
