@@ -5,13 +5,13 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class ChallengeSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')  # Owner's username is read-only
+    owner = serializers.ReadOnlyField(source='owner.username') 
 
     class Meta:
         model = Challenge
         fields = ['id', 'owner', 'title', 'description', 'start_date', 'end_date', 'image', 'sport', 'created_at', 'updated_at']
         extra_kwargs = {
-            'sport': {'required': True},  # Ensure 'sport' must be provided during serialization
+            'sport': {'required': True},
         }
 
     def validate_sport(self, value):
