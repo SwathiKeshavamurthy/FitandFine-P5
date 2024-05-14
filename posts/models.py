@@ -22,6 +22,17 @@ class Post(models.Model):
         ('walden', 'Walden'),
         ('xpro2', 'X-pro II')
     ]
+    TAG_CHOICES = [
+        ('cycling', 'Cycling'),
+        ('hiking', 'Hiking'),
+        ('swimming', 'Swimming'),
+        ('yoga', 'Yoga'),
+        ('running', 'Running'),
+        ('physical_activity', 'Physical Activity'),  # General tag for physical activities
+        ('nature', 'Nature'),  # General tag for activities related to nature
+        ('other_activities', 'Other Activities'),  # General tag for other activities
+    ]
+    DEFAULT_TAG = 'physical_activity'  # Default tag for physical activities
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -31,6 +42,7 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
+    tags = models.CharField(max_length=100, choices=TAG_CHOICES, default=DEFAULT_TAG)
 
  
     class Meta:
