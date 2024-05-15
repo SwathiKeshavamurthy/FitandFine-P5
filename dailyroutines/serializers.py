@@ -10,7 +10,7 @@ class DailyRoutineSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'person_name', 'date', 'wake_up_time', 'breakfast_time',
             'lunch_time', 'dinner_time', 'total_calorie_intake', 'water_intake',
-            'sleep_time', 'workout_minutes', 'junk', 'mood'
+            'sleep_time', 'workout_minutes', 'junk', 'mood', 'created_at', 'updated_at'
         ]
 
     def validate_date(self, value):
