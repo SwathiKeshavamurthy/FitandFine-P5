@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     'followers',
     'challenges',
     'dailyroutines',
+    'collaborate',
 ]
 
 SITE_ID = 1
