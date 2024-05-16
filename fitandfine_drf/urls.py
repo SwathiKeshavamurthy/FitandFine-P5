@@ -32,4 +32,5 @@ urlpatterns = [
     path('', include('followers.urls')),
     path('', include('challenges.urls')),
     path('', include('dailyroutines.urls')),
+    path('', include('collaborate.urls')),
 ]

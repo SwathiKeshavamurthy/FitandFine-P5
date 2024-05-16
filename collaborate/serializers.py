@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import About, CollaborationRequest
+from .models import About, Collaborate
 
 class AboutSerializer(serializers.ModelSerializer):
     class Meta:
         model = About
-        fields = '__all__'
+        fields = ['id', 'title', 'content', 'last_updated']
 
-class CollaborationRequestSerializer(serializers.ModelSerializer):
+class CollaborateSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CollaborationRequest
-        fields = '__all__'
+        model = Collaborate
+        fields = ['id', 'name', 'email', 'message', 'created_at']

@@ -2,14 +2,14 @@ from django.db import models
 
 class About(models.Model):
     title = models.CharField(max_length=200)
-    updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
+    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
 
-class CollaborationRequest(models.Model):
-    name = models.CharField(max_length=200)
+class Collaborate(models.Model):
+    name = models.CharField(max_length=255)
     email = models.EmailField()
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
