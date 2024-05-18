@@ -39,3 +39,14 @@ class Challenge(models.Model):
         super().clean()  
         if not self.sport:
             raise ValidationError('Sport selection cannot be empty upon submission.')
+
+class ChallengeParticipant(models.Model):
+    challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    joined_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('challenge', 'user')
+
+    def __str__(self):
+        return f'{self.user} joined {self.challenge}'
