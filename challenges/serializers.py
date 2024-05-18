@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Challenge
+from .models import Challenge, ChallengeParticipant
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -35,3 +35,9 @@ class ChallengeSerializer(serializers.ModelSerializer):
         if value and value.image.width > 4096:
             raise serializers.ValidationError('Image width larger than 4096px!')
         return value
+
+
+class ChallengeParticipantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChallengeParticipant
+        fields = '__all__'
