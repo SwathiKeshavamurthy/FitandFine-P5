@@ -14,7 +14,13 @@ class ChallengeList(generics.ListCreateAPIView):
     serializer_class = ChallengeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+    def get_queryset(self):
+        # Filter challenges where the owner is a superuser
+        return Challenge.objects.filter(owner__is_superuser=True)
+
     def perform_create(self, serializer):
+        if not self.request.user.is_superuser:
+            raise permissions.PermissionDenied("Only superusers can create challenges.")
         serializer.save(owner=self.request.user)
 
 class ChallengeDetail(generics.RetrieveUpdateDestroyAPIView):
