@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Challenge
+from .models import Challenge, ChallengeParticipant
 
 class ChallengeAdmin(admin.ModelAdmin):
     """
@@ -41,5 +41,8 @@ class ChallengeAdmin(admin.ModelAdmin):
             return False
         return super().has_delete_permission(request, obj)
 
+class ChallengeParticipantAdmin(admin.ModelAdmin):
+    list_display = ('challenge', 'user', 'joined_at')
 
 admin.site.register(Challenge, ChallengeAdmin)
+admin.site.register(ChallengeParticipant, ChallengeParticipantAdmin)
