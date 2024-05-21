@@ -67,7 +67,6 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'),'localhost',]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -152,7 +151,7 @@ WSGI_APPLICATION = 'fitandfine_drf.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': ({
+''    'defa''ult': ({
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     } if 'DEV' in os.environ else dj_database_url.parse(
