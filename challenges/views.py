@@ -7,10 +7,10 @@ from fitandfine_drf.permissions import IsOwnerOrReadOnly
 
 class ChallengeList(generics.ListCreateAPIView):
     """
-    List challenges or create a challenge if logged in.
+    List all challenges or create a challenge if logged in.
     The perform_create method associates the challenge with the logged-in user.
     """
-    queryset = Challenge.objects.filter(owner__is_superuser=True)  # Filter only superuser challenges
+    queryset = Challenge.objects.all()  # Include all challenges
     serializer_class = ChallengeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
