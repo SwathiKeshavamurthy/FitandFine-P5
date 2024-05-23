@@ -5,14 +5,21 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class ChallengeSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username') 
+    owner = serializers.ReadOnlyField(source='owner.username')
+    is_joined = serializers.SerializerMethodField()
 
     class Meta:
         model = Challenge
-        fields = ['id', 'owner', 'title', 'description', 'start_date', 'end_date', 'image', 'sport', 'created_at', 'updated_at']
+        fields = ['id', 'owner', 'title', 'description', 'start_date', 'end_date', 'image', 'sport', 'created_at', 'updated_at', 'is_joined']
         extra_kwargs = {
             'sport': {'required': True},
         }
+
+    def get_is_joined(self, obj):
+        request = self.context.get('request', None)
+        if request and request.user.is_authenticated:
+            return ChallengeParticipant.objects.filter(challenge=obj, user=request.user).exists()
+        return False
 
     def validate_sport(self, value):
         """
