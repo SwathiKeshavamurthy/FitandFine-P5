@@ -38,6 +38,13 @@ class PostList(generics.ListCreateAPIView):
         'likes__created_at',
     ]
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        commented_by_me = self.request.query_params.get('commented_by_me', None)
+        if commented_by_me:
+            queryset = queryset.filter(comment__owner=self.request.user).distinct()
+        return queryset
+
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
