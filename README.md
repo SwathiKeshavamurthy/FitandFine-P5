@@ -1,112 +1,104 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<p align="center">
+  <img src="static/images/favicon.JPG" alt="Fit&Fine Logo" style="width: 100px; height: auto;">
+</p>
+<h1 align="center">Fit&Fine</h1>
 
-Welcome USER_NAME,
+[Fit&Fine Django Rest Framework API Backend Live Link](https://fitandfine-drf-be560b223a3b.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[Fit&Fine React Frontend Live Link](https://fitandfine-react-p5-f5d23da9d77c.herokuapp.com/)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **April 26, 2024**
+[Fit&Fine React Frontend Github Repo](https://github.com/SwathiKeshavamurthy/fitandfine-react-p5)
 
-## Gitpod Reminders
+## Project Goals
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Fit&Fine is designed to be a comprehensive fitness companion for users of all levels, from beginners to seasoned athletes. The primary goals of the web app are to:
+1) Provide users with tools to set fitness challenges, track daily routines, and monitor their progress, fostering a supportive and motivating community.
+2) Deliver a user-friendly and engaging platform where users can create and share posts, follow other users, and collaborate on fitness activities.
+3) Ensure a streamlined experience with essential features like personalized daily routines, community challenges, and the ability to manage profiles, posts, and comments.
 
-`python3 -m http.server`
+The backend is implemented using Django Rest Framework API for the [Fit&Fine Website](https://fitandfine-react-p5-f5d23da9d77c.herokuapp.com/). It is designed to support both web and future mobile applications providing robust and secure APIs for the Fit&Fine React frontend application, ensuring seamless integration and future scalability.
 
-A blue button should appear to click: _Make Public_,
+## Table of contents
 
-Another blue button should appear to click: _Open Browser_.
+## Planning
+- [Project Goals](#project-goals)
+- [Table of contents](#table-of-contents)
+- [Planning](#planning)
+  - [Project Overview](#project-overview)
+  - [Objectives](#objectives)
+  - [Timeline](#timeline)
+- [Data Models](#data-models)
+  - [1. User Profile Model](#1-user-profile-model)
+  - [2. Posts Model](#2-posts-model)
+  - [3. Comments Model](#3-comments-model)
+  - [4. Daily Routines Model](#4-daily-routines-model)
+  - [5. Challenges Model](#5-challenges-model)
+  - [6. Collaborate Model](#6-collaborate-model)
+  - [7. Likes Model](#7-likes-model)
+  - [8. Follower Model](#8-follower-model)
+- [API Endpoints](#api-endpoints)
+  - [Authentication Endpoints](#authentication-endpoints)
+  - [Profile Endpoints](#profile-endpoints)
+  - [Post Endpoints](#post-endpoints)
+  - [Comment Endpoints](#comment-endpoints)
+  - [Daily Routine Endpoints](#daily-routine-endpoints)
+  - [Challenge Endpoints](#challenge-endpoints)
+  - [Collaborate Endpoints](#collaborate-endpoints)
+  - [Like Endpoints](#like-endpoints)
+  - [Follower Endpoints](#follower-endpoints)
+  - [Example Requests and Responses](#example-requests-and-responses)
+    - [Example: Create a Post](#example-create-a-post)
+    - [Example: Retrieve Profile](#example-retrieve-profile)
+- [Frameworks, Libraries, and Dependencies](#frameworks-libraries-and-dependencies)
+  - [Django Framework and Extensions](#django-framework-and-extensions)
+  - [Database Management](#database-management)
+  - [Authentication and Security](#authentication-and-security)
+  - [Storage and Image Handling](#storage-and-image-handling)
+  - [Application Server](#application-server)
+  - [Utility Libraries](#utility-libraries)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+The planning phase for the Fit&Fine project encompasses several key areas to ensure the successful development and deployment of both the backend and frontend components. Here is a comprehensive plan to guide the development process:
 
-A blue button should appear to click: _Make Public_,
+### Project Overview
 
-Another blue button should appear to click: _Open Browser_.
+Fit&Fine is a comprehensive fitness platform designed to help users achieve their health and wellness goals. The platform includes features such as challenges, daily routines, and social interaction to create a supportive and motivating environment for users.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Objectives
 
-To log into the Heroku toolbelt CLI:
+1. Develop a robust backend API using Django Rest Framework to handle data management and user authentication.
+2. Build an intuitive and responsive frontend using React to provide a seamless user experience.
+3. Integrate key features such as user profiles, posts, comments, likes, challenges, and daily routines.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Timeline
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+1. **Week 1: Project Setup and Initial Development**
+   - Set up backend and frontend repositories.
+   - Configure Django Rest Framework for the backend.
+   - Initialize React project for the frontend.
+   - Set up initial project structure and environment configurations.
 
-------
+2. **Week 2: User Authentication and Profile Management**
+   - Implement user registration, login, and logout functionality.
+   - Develop user profile creation and editing features.
+   - Ensure secure password handling and authentication processes.
 
-## Release History
+3. **Week 3: Core Features Development**
+   - Develop the functionality for creating, editing, and deleting posts.
+   - Implement comments and likes features for posts.
+   - Develop daily routines and challenges features, including creation and management.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+4. **Week 4: Frontend Integration and Styling**
+   - Integrate backend API with the frontend.
+   - Develop responsive and user-friendly UI components.
+   - Apply consistent styling using CSS modules or a CSS framework.
 
-**April 26 2024:** Update node version to 16
+5. **Week 5: Testing and Debugging**
+   - Conduct thorough testing of all features.
+   - Fix any bugs or issues identified during testing.
+   - Perform user acceptance testing (UAT) to ensure the platform meets user needs.
 
-**September 20 2023:** Update Python version to 3.9.17.
+6. **Week 6: Deployment and Documentation**
+   - Deploy the backend API to a cloud service (e.g., Heroku, AWS).
+   - Deploy the frontend application to a hosting service (e.g., Netlify, Vercel).
+   - Write comprehensive documentation, including setup instructions, API documentation, and user guides.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
