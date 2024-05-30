@@ -26,7 +26,7 @@ The backend is implemented using Django Rest Framework API for the [Fit&Fine Web
   - [Objectives](#objectives)
   - [Timeline](#timeline)
 - [Data Models](#data-models)
-  - [1. User Profile Model](#1-user-profile-model)
+  - [1. Profiles Model](#1-profiles-model)
   - [2. Posts Model](#2-posts-model)
   - [3. Comments Model](#3-comments-model)
   - [4. Daily Routines Model](#4-daily-routines-model)
@@ -35,18 +35,7 @@ The backend is implemented using Django Rest Framework API for the [Fit&Fine Web
   - [7. Likes Model](#7-likes-model)
   - [8. Follower Model](#8-follower-model)
 - [API Endpoints](#api-endpoints)
-  - [Authentication Endpoints](#authentication-endpoints)
-  - [Profile Endpoints](#profile-endpoints)
-  - [Post Endpoints](#post-endpoints)
-  - [Comment Endpoints](#comment-endpoints)
-  - [Daily Routine Endpoints](#daily-routine-endpoints)
-  - [Challenge Endpoints](#challenge-endpoints)
-  - [Collaborate Endpoints](#collaborate-endpoints)
-  - [Like Endpoints](#like-endpoints)
-  - [Follower Endpoints](#follower-endpoints)
   - [Example Requests and Responses](#example-requests-and-responses)
-    - [Example: Create a Post](#example-create-a-post)
-    - [Example: Retrieve Profile](#example-retrieve-profile)
 - [Frameworks, Libraries, and Dependencies](#frameworks-libraries-and-dependencies)
   - [Django Framework and Extensions](#django-framework-and-extensions)
   - [Database Management](#database-management)
@@ -106,7 +95,7 @@ Fit&Fine is a comprehensive fitness platform designed to help users achieve thei
 
 The Fit&Fine backend project is organized into several key models, each representing different aspects of the Fit&Fine platform. Below is an overview of the primary data models used in the project:
 
-### 1. User Profile Model
+### 1. Profiles Model
    - **Profile**: Stores user-specific information such as username, password, profile image, bio, email, and birthday.
 
 **Fields**:
@@ -196,123 +185,77 @@ and Followers Models
   - `owner`: ForeignKey to Profile
   - `following`: ForeignKey to Profile
 
+Sure, here's the updated API Endpoints section with CRUD operation and View Type columns added:
+
+Here's the table formatted for a README.md file:
+
 ## API Endpoints
 
 The Fit&Fine backend provides a RESTful API to interact with the various models. Below is a list of the primary API endpoints for each model, including their respective HTTP methods and descriptions.
 
-### Authentication Endpoints
-
-- **`/dj-rest-auth/login/`**:
-  - **POST**: Log in a user and obtain authentication tokens.
-
-- **`/dj-rest-auth/logout/`**:
-  - **POST**: Log out a user and invalidate their authentication tokens.
-
-- **`/dj-rest-auth/registration/`**:
-  - **POST**: Register a new user.
-
-### Profile Endpoints
-
-- **`/profiles/`**:
-  - **GET**: Retrieve a list of profiles.
-  - **POST**: Create a new profile (admin only).
-
-- **`/profiles/<id>/`**:
-  - **GET**: Retrieve a specific profile by ID.
-  - **PUT**: Update a specific profile by ID.
-  - **PATCH**: Partially update a specific profile by ID.
-  - **DELETE**: Delete a specific profile by ID (admin only).
-
-### Post Endpoints
-
-- **`/posts/`**:
-  - **GET**: Retrieve a list of posts.
-  - **POST**: Create a new post.
-
-- **`/posts/<id>/`**:
-  - **GET**: Retrieve a specific post by ID.
-  - **PUT**: Update a specific post by ID.
-  - **PATCH**: Partially update a specific post by ID.
-  - **DELETE**: Delete a specific post by ID.
-
-### Comment Endpoints
-
-- **`/comments/`**:
-  - **GET**: Retrieve a list of comments.
-  - **POST**: Create a new comment.
-
-- **`/comments/<id>/`**:
-  - **GET**: Retrieve a specific comment by ID.
-  - **PUT**: Update a specific comment by ID.
-  - **PATCH**: Partially update a specific comment by ID.
-  - **DELETE**: Delete a specific comment by ID.
-
-### Daily Routine Endpoints
-
-- **`/dailyroutines/`**:
-  - **GET**: Retrieve a list of daily routines.
-  - **POST**: Create a new daily routine.
-
-- **`/dailyroutines/<id>/`**:
-  - **GET**: Retrieve a specific daily routine by ID.
-  - **PUT**: Update a specific daily routine by ID.
-  - **PATCH**: Partially update a specific daily routine by ID.
-  - **DELETE**: Delete a specific daily routine by ID.
-
-### Challenge Endpoints
-
-- **`/challenges/`**:
-  - **GET**: Retrieve a list of challenges.
-  - **POST**: Create a new challenge.
-
-- **`/challenges/<id>/`**:
-  - **GET**: Retrieve a specific challenge by ID.
-  - **PUT**: Update a specific challenge by ID.
-  - **PATCH**: Partially update a specific challenge by ID.
-  - **DELETE**: Delete a specific challenge by ID.
-
-- **`/challenges/<id>/join/`**:
-  - **POST**: Join a specific challenge.
-
-- **`/challenges/<id>/leave/`**:
-  - **POST**: Leave a specific challenge.
-
-### Collaborate Endpoints
-
-- **`/collaborate/`**:
-  - **GET**: Retrieve a list of collaboration messages.
-  - **POST**: Create a new collaboration message.
-
-- **`/collaborate/<id>/`**:
-  - **GET**: Retrieve a specific collaboration message by ID.
-  - **DELETE**: Delete a specific collaboration message by ID.
-
-### Like Endpoints
-
-- **`/likes/`**:
-  - **GET**: Retrieve a list of likes.
-  - **POST**: Create a new like.
-
-- **`/likes/<id>/`**:
-  - **DELETE**: Delete a specific like by ID.
-
-### Follower Endpoints
-
-- **`/followers/`**:
-  - **GET**: Retrieve a list of followers.
-  - **POST**: Follow a user.
-
-- **`/followers/<id>/`**:
-  - **DELETE**: Unfollow a user by ID.
+| Endpoint                    | HTTP Method | CRUD Operation | View Type         | Description                                               |
+|-----------------------------|-------------|----------------|-------------------|-----------------------------------------------------------|
+| **Authentication Endpoints**                                                                 |
+| `/dj-rest-auth/login/`      | POST        | Create         | Auth              | Log in a user and obtain authentication tokens.           |
+| `/dj-rest-auth/logout/`     | POST        | Delete         | Auth              | Log out a user and invalidate their authentication tokens.|
+| `/dj-rest-auth/registration/`| POST       | Create         | Auth              | Register a new user.                                      |
+| **Profile Endpoints**                                                                       |
+| `/profiles/`                | GET         | Read           | List              | Retrieve a list of profiles.                              |
+|                             | POST        | Create         | Create            | Create a new profile (admin only).                        |
+| `/profiles/<id>/`           | GET         | Read           | Detail            | Retrieve a specific profile by ID.                        |
+|                             | PUT         | Update         | Update            | Update a specific profile by ID.                          |
+|                             | PATCH       | Update         | Partial Update    | Partially update a specific profile by ID.                |
+|                             | DELETE      | Delete         | Delete            | Delete a specific profile by ID (admin only).             |
+| **Post Endpoints**                                                                          |
+| `/posts/`                   | GET         | Read           | List              | Retrieve a list of posts.                                 |
+|                             | POST        | Create         | Create            | Create a new post.                                        |
+| `/posts/<id>/`              | GET         | Read           | Detail            | Retrieve a specific post by ID.                           |
+|                             | PUT         | Update         | Update            | Update a specific post by ID.                             |
+|                             | PATCH       | Update         | Partial Update    | Partially update a specific post by ID.                   |
+|                             | DELETE      | Delete         | Delete            | Delete a specific post by ID.                             |
+| **Comment Endpoints**                                                                       |
+| `/comments/`                | GET         | Read           | List              | Retrieve a list of comments.                              |
+|                             | POST        | Create         | Create            | Create a new comment.                                     |
+| `/comments/<id>/`           | GET         | Read           | Detail            | Retrieve a specific comment by ID.                        |
+|                             | PUT         | Update         | Update            | Update a specific comment by ID.                          |
+|                             | PATCH       | Update         | Partial Update    | Partially update a specific comment by ID.                |
+|                             | DELETE      | Delete         | Delete            | Delete a specific comment by ID.                          |
+| **Daily Routine Endpoints**                                                                |
+| `/dailyroutines/`           | GET         | Read           | List              | Retrieve a list of daily routines.                        |
+|                             | POST        | Create         | Create            | Create a new daily routine.                               |
+| `/dailyroutines/<id>/`      | GET         | Read           | Detail            | Retrieve a specific daily routine by ID.                  |
+|                             | PUT         | Update         | Update            | Update a specific daily routine by ID.                    |
+|                             | PATCH       | Update         | Partial Update    | Partially update a specific daily routine by ID.          |
+|                             | DELETE      | Delete         | Delete            | Delete a specific daily routine by ID.                    |
+| **Challenge Endpoints**                                                                   |
+| `/challenges/`              | GET         | Read           | List              | Retrieve a list of challenges.                            |
+|                             | POST        | Create         | Create            | Create a new challenge.                                   |
+| `/challenges/<id>/`         | GET         | Read           | Detail            | Retrieve a specific challenge by ID.                      |
+|                             | PUT         | Update         | Update            | Update a specific challenge by ID.                        |
+|                             | PATCH       | Update         | Partial Update    | Partially update a specific challenge by ID.              |
+|                             | DELETE      | Delete         | Delete            | Delete a specific challenge by ID.                        |
+| `/challenges/<id>/join/`    | POST        | Create         | Action            | Join a specific challenge.                                |
+| `/challenges/<id>/leave/`   | POST        | Create         | Action            | Leave a specific challenge.                               |
+| **Collaborate Endpoints**                                                                 |
+| `/collaborate/`             | GET         | Read           | List              | Retrieve a list of collaboration messages.                |
+|                             | POST        | Create         | Create            | Create a new collaboration message.                       |
+| `/collaborate/<id>/`        | GET         | Read           | Detail            | Retrieve a specific collaboration message by ID.          |
+|                             | DELETE      | Delete         | Delete            | Delete a specific collaboration message by ID.            |
+| **Like Endpoints**                                                                         |
+| `/likes/`                   | GET         | Read           | List              | Retrieve a list of likes.                                 |
+|                             | POST        | Create         | Create            | Create a new like.                                        |
+| `/likes/<id>/`              | DELETE      | Delete         | Delete            | Delete a specific like by ID.                             |
+| **Follower Endpoints**                                                                     |
+| `/followers/`               | GET         | Read           | List              | Retrieve a list of followers.                             |
+|                             | POST        | Create         | Create            | Follow a user.                                            |
+| `/followers/<id>/`          | DELETE      | Delete         | Delete            | Unfollow a user by ID.                                    |
 
 ### Example Requests and Responses
 
-Below are example requests and responses for common API operations.
-
-#### Example: Create a Post
+**Example: Create a Post**
 
 **Request:**
-```
+```http
 POST /posts/
 {
   "title": "My First Post",
@@ -322,7 +265,7 @@ POST /posts/
 ```
 
 **Response:**
-```
+```json
 201 Created
 {
   "id": 1,
@@ -337,15 +280,15 @@ POST /posts/
 }
 ```
 
-#### Example: Retrieve Profile
+**Example: Retrieve Profile**
 
 **Request:**
-```
+```http
 GET /profiles/1/
 ```
 
 **Response:**
-```
+```json
 200 OK
 {
   "id": 1,
