@@ -5,6 +5,7 @@ from datetime import date
 
 User = get_user_model()
 
+
 class ChallengeModelTestCase(TestCase):
     def setUp(self):
         # Create a user
@@ -41,7 +42,9 @@ class ChallengeModelTestCase(TestCase):
 
     def test_update_challenge_fields(self):
         self.challenge.title = 'Spring Marathon'
-        self.challenge.description = 'A challenging marathon to start the spring.'
+        self.challenge.description = (
+            'A challenging marathon to start the spring.'
+        )
         self.challenge.sport = 'running'  # Update to different sport if needed
         self.challenge.save()
         updated_challenge = Challenge.objects.get(id=self.challenge.id)
