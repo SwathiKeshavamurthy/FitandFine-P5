@@ -42,7 +42,9 @@ class PostList(generics.ListCreateAPIView):
         queryset = super().get_queryset()
         commented_by_me = self.request.query_params.get('commented_by_me', None)
         if commented_by_me:
-            queryset = queryset.filter(comment__owner=self.request.user).distinct()
+            queryset = queryset.filter(
+                comment__owner=self.request.user
+            ).distinct()
         return queryset
 
     def perform_create(self, serializer):
