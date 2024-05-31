@@ -1,5 +1,13 @@
 # Fit&Fine DRF API Testing
 
+This is the TESTING file for the [Fit&Fine Django Rest Framework API Backend Live Link](https://fitandfine-drf-be560b223a3b.herokuapp.com/).
+
+[Fit&Fine React Frontend Live Link](https://fitandfine-react-p5-f5d23da9d77c.herokuapp.com/)
+and 
+[Fit&Fine React Frontend Github Repo](https://github.com/SwathiKeshavamurthy/fitandfine-react-p5)
+
+Return back to the [README.md](README.md) file.
+
 ## Table of contents
 
 - [Fit\&Fine DRF API Testing](#fitfine-drf-api-testing)
@@ -25,6 +33,15 @@
     - [Profile Model Tests](#profile-model-tests)
     - [Running the Tests](#running-the-tests)
   - [Python Validation](#python-validation)
+    - [FitandFine\_DRF Project Python Validation Results](#fitandfine_drf-project-python-validation-results)
+    - [Profile Module Python Validation Results](#profile-module-python-validation-results)
+    - [Posts Module Python Validation Results](#posts-module-python-validation-results)
+    - [Comments Module Python Validation Results](#comments-module-python-validation-results)
+    - [Daily Routine Module Python Validation Results](#daily-routine-module-python-validation-results)
+    - [Challenges Module Python Validation Results](#challenges-module-python-validation-results)
+    - [Followers Module Python Validation Results](#followers-module-python-validation-results)
+    - [Likes Module Python Validation Results](#likes-module-python-validation-results)
+    - [Collaborate Module Python Validation Results](#collaborate-module-python-validation-results)
 
 ##  Manual Testing
 
@@ -261,7 +278,7 @@ This command will execute all the tests and provide a summary of the results.
 - **Purpose:** Analyzes Python source code to identify coding errors, enforce a coding standard, and look for code smells.
 - **Process:** Python code within the Fit&Fine application is analyzed with Pylint to ensure adherence to coding standards and to improve code quality.
 
-**Fit&Fine - FitandFine_DRF Project Python Validation Results**
+### FitandFine_DRF Project Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **settings.py**            | ![screenshot](documentation/validation/fitandfine/settings.JPG) | 0      | 6        |
@@ -273,7 +290,7 @@ This command will execute all the tests and provide a summary of the results.
 | **wsgi.py**                | ![screenshot](documentation/validation/fitandfine/wsgi.JPG)     | 0      | 0        |
 | **asgi.py**                | ![screenshot](documentation/validation/fitandfine/asgi.JPG)     | 0      | 0        |
 
-**Fit&Fine - Profile Module Python Validation Results**
+### Profile Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/profile/profile_views.JPG)    | 0      | 0        |
@@ -284,7 +301,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/profile/profile_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/profile/profile_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Posts Module Python Validation Results**
+### Posts Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/posts/posts_views.JPG)    | 0      | 1        |
@@ -295,7 +312,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/posts/posts_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/posts/posts_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Comments Module Python Validation Results**
+### Comments Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/comments/comments_views.JPG)    | 0      | 0        |
@@ -306,7 +323,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/comments/comments_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/comments/comments_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Daily Routine Module Python Validation Results**
+### Daily Routine Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/dailyroutine/routine_views.JPG)    | 0      | 0        |
@@ -317,7 +334,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/dailyroutine/routine_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/dailyroutine/routine_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Challenges Module Python Validation Results**
+### Challenges Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/challenges/challenges_views.JPG)    | 0      | 0        |
@@ -328,7 +345,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/challenges/challenges_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/challenges/challenges_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Followers Module Python Validation Results**
+### Followers Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/followers/followers_views.JPG)    | 0      | 0        |
@@ -339,7 +356,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/followers/followers_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/followers/followers_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Likes Module Python Validation Results**
+### Likes Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/likes/likes_views.JPG)    | 0      | 0        |
@@ -350,7 +367,7 @@ This command will execute all the tests and provide a summary of the results.
 | **serializers.py**         | ![screenshot](documentation/validation/likes/likes_serializers.JPG) | 0   | 0        |
 | **tests.py**               | ![screenshot](documentation/validation/likes/likes_tests.JPG)    | 0      | 0        |
 
-**Fit&Fine - Collaborate Module Python Validation Results**
+### Collaborate Module Python Validation Results
 | Python File                | Results Screenshots                                | Errors | Warnings |
 |----------------------------|----------------------------------------------------|--------|----------|
 | **views.py**               | ![screenshot](documentation/validation/collaborate/collaborate_views.JPG)    | 0      | 0        |
