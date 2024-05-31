@@ -6,10 +6,14 @@ from datetime import date, time, timedelta
 
 User = get_user_model()
 
+
 class DailyRoutineTestCase(TestCase):
     def setUp(self):
         # Create a user for the test case
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpass'
+        )
 
         # Create a daily routine for today
         self.daily_routine = DailyRoutine.objects.create(
@@ -41,7 +45,7 @@ class DailyRoutineTestCase(TestCase):
         """
         future_date = date.today() + timedelta(days=1)
         with self.assertRaises(ValidationError):
-            DailyRoutine.objects.create(
+            routine = DailyRoutine.objects.create(
                 owner=self.user,
                 person_name="Test User",
                 date=future_date,
@@ -55,7 +59,8 @@ class DailyRoutineTestCase(TestCase):
                 workout_minutes=30,
                 junk=False,
                 mood='energetic'
-            ).full_clean()
+            )
+            routine.full_clean()
 
     def test_update_routine_mood(self):
         """
@@ -97,4 +102,4 @@ class DailyRoutineTestCase(TestCase):
             workout_minutes=45,
             mood='happy'
         )
-        self.assertFalse(new_routine.junk) 
+        self.assertFalse(new_routine.junk)

@@ -3,6 +3,7 @@ from .models import DailyRoutine
 from .serializers import DailyRoutineSerializer
 from fitandfine_drf.permissions import IsOwnerOrReadOnly
 
+
 class DailyRoutineList(generics.ListCreateAPIView):
     queryset = DailyRoutine.objects.all()
     serializer_class = DailyRoutineSerializer
@@ -10,6 +11,7 @@ class DailyRoutineList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class DailyRoutineDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = DailyRoutine.objects.all()
