@@ -14,6 +14,16 @@
     - [Collaborate Endpoints](#collaborate-endpoints)
     - [Like Endpoints](#like-endpoints)
     - [Follower Endpoints](#follower-endpoints)
+  - [Automated Testing](#automated-testing)
+    - [Challenge Model Tests](#challenge-model-tests)
+    - [Collaborate Model Tests](#collaborate-model-tests)
+    - [Comment Model Tests](#comment-model-tests)
+    - [Daily Routine Model Tests](#daily-routine-model-tests)
+    - [Followers Model Tests](#followers-model-tests)
+    - [Like Model Tests](#like-model-tests)
+    - [Post API Tests](#post-api-tests)
+    - [Profile Model Tests](#profile-model-tests)
+    - [Running the Tests](#running-the-tests)
 
 ##  Manual Testing
 
@@ -112,3 +122,135 @@ Tests were performed using the Django Rest Framework HTML interface running on a
 | `/followers/<id>/`     | DELETE | Delete         | Unfollow a user by ID                | Unfollow successful                 | Unfollow successful | PASS       |
 
 This table provides a clear overview of the API endpoints tested, including their HTTP methods, descriptions, CRUD operations, expected and actual results, and whether the test passed or failed.
+
+## Automated Testing 
+
+This provides an overview of the automated tests implemented for the Fit and Fine project. These tests ensure the reliability and correctness of various functionalities, including user authentication, model validations, and API endpoints.
+
+### Challenge Model Tests
+
+**File:** `/workspace/FitandFine-P5/challenges/tests.py`
+
+**Description:** Tests for the Challenge model, ensuring that challenges are created, associated with users, and can be updated correctly.
+
+**Tests:**
+- **Challenge Creation:** Verifies that a challenge can be created.
+- **User Association:** Ensures a challenge is associated with the correct user.
+- **Default Field Values:** Checks the default values for challenge fields.
+- **Retrieve by User:** Tests if a challenge can be retrieved by the associated user.
+- **Update Fields:** Verifies that challenge fields can be updated correctly.
+
+![alt text](documentation/tests/image.png)
+
+### Collaborate Model Tests
+
+**File:** `/workspace/FitandFine-P5/collaborate/tests.py`
+
+**Description:** Tests for the About and Collaborate models, ensuring they can be created and updated correctly.
+
+**Tests:**
+- **About Creation:** Verifies that an About entry can be created.
+- **About Update:** Checks that the About entry can be updated.
+- **Collaborate Creation:** Ensures a Collaborate entry can be created.
+- **Collaborate Field Values:** Validates the fields of the Collaborate model.
+
+![alt text](documentation/tests/image1.png)
+
+### Comment Model Tests
+
+**File:** `/workspace/FitandFine-P5/comments/tests.py`
+
+**Description:** Tests for the Comment model, ensuring that comments are correctly associated with users and posts.
+
+**Tests:**
+- **Comment Creation:** Verifies that a comment can be created.
+- **User Association:** Ensures a comment is associated with the correct user.
+- **Post Association:** Checks that a comment is associated with the correct post.
+- **Comment Content:** Validates the content of the comment.
+- **Comment Ordering:** Ensures comments are ordered correctly.
+
+![alt text](documentation/tests/image2.png)
+
+### Daily Routine Model Tests
+
+**File:** `/workspace/FitandFine-P5/dailyroutines/tests.py`
+
+**Description:** Tests for the Daily Routine model, ensuring routines are valid and realistic.
+
+**Tests:**
+- **Routine Creation:** Verifies that a daily routine can be created.
+- **Date Validation:** Ensures the date is not set in the future.
+- **Update Mood:** Tests updating the mood of a routine.
+- **Profile Link:** Ensures routines link to the user's profile.
+- **Water Intake Validation:** Checks for realistic water intake values.
+- **Default Junk Food Setting:** Verifies the default setting for junk food consumption.
+
+![alt text](documentation/tests/image7.png)
+
+### Followers Model Tests
+
+**File:** `/workspace/FitandFine-P5/followers/tests.py`
+
+**Description:** Tests for the Follower model, ensuring follower relationships are managed correctly.
+
+**Tests:**
+- **Follower Creation:** Verifies that a follower relationship can be created.
+- **Owner Association:** Ensures a follower is associated with the correct owner.
+- **Followed Association:** Checks that a follower is associated with the correct followed user.
+- **Unique Follower:** Validates that duplicate follower relationships are not allowed.
+
+![alt text](documentation/tests/image3.png)
+
+### Like Model Tests
+
+**File:** `/workspace/FitandFine-P5/likes/tests.py`
+
+**Description:** Tests for the Like model, ensuring likes are managed correctly.
+
+**Tests:**
+- **Like Creation:** Verifies that a like can be created.
+- **User Association:** Ensures a like is associated with the correct user.
+- **Post Association:** Checks that a like is associated with the correct post.
+- **Unique Like:** Validates that duplicate likes are not allowed.
+
+![alt text](documentation/tests/image4.png)
+
+### Post API Tests
+
+**File:** `/workspace/FitandFine-P5/posts/tests.py`
+
+**Description:** Tests for the Post API, ensuring that users can list, create, and update posts correctly.
+
+**Tests:**
+- **List Posts:** Ensures posts can be listed.
+- **Create Post (Logged In):** Verifies that a logged-in user can create a post.
+- **Create Post (Not Logged In):** Ensures that a non-logged-in user cannot create a post.
+- **Retrieve Post by ID:** Checks that a post can be retrieved using a valid ID.
+- **Update Post (Own Post):** Verifies that a user can update their own post.
+- **Update Post (Others' Post):** Ensures a user cannot update another user's post.
+
+![alt text](documentation/tests/image5.png)
+
+### Profile Model Tests
+
+**File:** `/workspace/FitandFine-P5/profiles/tests.py`
+
+**Description:** Tests for the Profile model, ensuring profiles are created and associated with users correctly.
+
+**Tests:**
+- **Profile Creation on User Creation:** Ensures a profile is created when a user is created.
+- **User Association:** Checks that a profile is associated with the correct user.
+- **Default Field Values:** Verifies the default values for profile fields.
+- **Retrieve Profile by User ID:** Ensures a profile can be retrieved by user ID.
+- **Update Profile Fields:** Validates that profile fields can be updated correctly.
+
+![alt text](documentation/tests/image6.png)
+
+### Running the Tests
+
+To run the tests, use the following command:
+```bash
+python manage.py test
+```
+
+This command will execute all the tests and provide a summary of the results.
