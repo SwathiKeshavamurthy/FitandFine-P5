@@ -6,8 +6,12 @@ from .models import Like
 
 class LikeModelTestCase(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        self.post = Post.objects.create(owner=self.user, title='Test Post', content='Test content')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
+        self.post = Post.objects.create(
+            owner=self.user, title='Test Post', content='Test content'
+        )
 
     def test_create_like(self):
         like = Like.objects.create(owner=self.user, post=self.post)
@@ -29,4 +33,4 @@ class LikeModelTestCase(TestCase):
 
         # Creating a like for the same user and post again should fail
         with self.assertRaises(Exception):
-            like2 = Like.objects.create(owner=self.user, post=self.post)
+            Like.objects.create(owner=self.user, post=self.post)
