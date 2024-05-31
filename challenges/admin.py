@@ -1,11 +1,14 @@
 from django.contrib import admin
 from .models import Challenge, ChallengeParticipant
 
+
 class ChallengeAdmin(admin.ModelAdmin):
     """
     Custom admin for the Challenge model.
     """
-    list_display = ('title', 'owner', 'sport', 'start_date', 'end_date', 'created_at')
+    list_display = (
+        'title', 'owner', 'sport', 'start_date', 'end_date', 'created_at'
+    )
     list_filter = ('sport', 'start_date', 'end_date', 'created_at')
     search_fields = ('title', 'description', 'owner__username')
     readonly_fields = ('created_at', 'updated_at')
@@ -18,7 +21,8 @@ class ChallengeAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         """
-        Limit the visibility of the challenges to the ones created by the logged-in admin.
+        Limit the visibility of the challenges to the ones created by
+        the logged-in admin.
         """
         qs = super().get_queryset(request)
         if request.user.is_superuser:
@@ -29,7 +33,8 @@ class ChallengeAdmin(admin.ModelAdmin):
         """
         Only allow the owner or superuser to change the object.
         """
-        if obj and (obj.owner != request.user and not request.user.is_superuser):
+        if obj and (obj.owner != request.user and
+                    not request.user.is_superuser):
             return False
         return super().has_change_permission(request, obj)
 
@@ -37,12 +42,15 @@ class ChallengeAdmin(admin.ModelAdmin):
         """
         Only allow the owner or superuser to delete the object.
         """
-        if obj and (obj.owner != request.user and not request.user.is_superuser):
+        if obj and (obj.owner != request.user and
+                    not request.user.is_superuser):
             return False
         return super().has_delete_permission(request, obj)
 
+
 class ChallengeParticipantAdmin(admin.ModelAdmin):
     list_display = ('challenge', 'user', 'joined_at')
+
 
 admin.site.register(Challenge, ChallengeAdmin)
 admin.site.register(ChallengeParticipant, ChallengeParticipantAdmin)

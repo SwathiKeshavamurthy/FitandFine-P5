@@ -4,13 +4,17 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class ChallengeSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_joined = serializers.SerializerMethodField()
 
     class Meta:
         model = Challenge
-        fields = ['id', 'owner', 'title', 'description', 'start_date', 'end_date', 'image', 'sport', 'created_at', 'updated_at', 'is_joined']
+        fields = [
+            'id', 'owner', 'title', 'description', 'start_date', 'end_date',
+            'image', 'sport', 'created_at', 'updated_at', 'is_joined'
+        ]
         extra_kwargs = {
             'sport': {'required': True},
         }
@@ -18,7 +22,9 @@ class ChallengeSerializer(serializers.ModelSerializer):
     def get_is_joined(self, obj):
         request = self.context.get('request', None)
         if request and request.user.is_authenticated:
-            return ChallengeParticipant.objects.filter(challenge=obj, user=request.user).exists()
+            return ChallengeParticipant.objects.filter(
+                challenge=obj, user=request.user
+            ).exists()
         return False
 
     def validate_sport(self, value):
@@ -38,9 +44,13 @@ class ChallengeSerializer(serializers.ModelSerializer):
         if value and value.size > 2 * 1024 * 1024:  # 2MB max
             raise serializers.ValidationError('Image size larger than 2MB!')
         if value and value.image.height > 4096:
-            raise serializers.ValidationError('Image height larger than 4096px!')
+            raise serializers.ValidationError(
+                'Image height larger than 4096px!'
+            )
         if value and value.image.width > 4096:
-            raise serializers.ValidationError('Image width larger than 4096px!')
+            raise serializers.ValidationError(
+                'Image width larger than 4096px!'
+            )
         return value
 
 

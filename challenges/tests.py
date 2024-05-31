@@ -8,7 +8,10 @@ User = get_user_model()
 class ChallengeModelTestCase(TestCase):
     def setUp(self):
         # Create a user
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpass'
+        )
 
         # Create a challenge
         self.challenge = Challenge.objects.create(
@@ -39,9 +42,11 @@ class ChallengeModelTestCase(TestCase):
     def test_update_challenge_fields(self):
         self.challenge.title = 'Spring Marathon'
         self.challenge.description = 'A challenging marathon to start the spring.'
-        self.challenge.sport = 'running'  # Update to a different sport if needed
+        self.challenge.sport = 'running'  # Update to different sport if needed
         self.challenge.save()
-        
         updated_challenge = Challenge.objects.get(id=self.challenge.id)
         self.assertEqual(updated_challenge.title, 'Spring Marathon')
-        self.assertEqual(updated_challenge.description, 'A challenging marathon to start the spring.')
+        self.assertEqual(
+            updated_challenge.description,
+            'A challenging marathon to start the spring.'
+        )
