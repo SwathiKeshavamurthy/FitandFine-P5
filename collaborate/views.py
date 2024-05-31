@@ -2,6 +2,7 @@ from rest_framework import generics
 from .models import About, Collaborate
 from .serializers import AboutSerializer, CollaborateSerializer
 
+
 class AboutView(generics.RetrieveUpdateAPIView):
     """
     Retrieve or update the About page content.
@@ -9,6 +10,7 @@ class AboutView(generics.RetrieveUpdateAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
     permission_classes = []  # Adjust based on your needs
+
 
 class CollaborateListCreate(generics.ListCreateAPIView):
     """
@@ -18,6 +20,7 @@ class CollaborateListCreate(generics.ListCreateAPIView):
     queryset = Collaborate.objects.all()
     serializer_class = CollaborateSerializer
     permission_classes = []  # Open access
+
 
 class CollaborateDetail(generics.RetrieveAPIView):
     """
