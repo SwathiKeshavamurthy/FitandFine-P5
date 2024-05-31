@@ -24,6 +24,7 @@
     - [Post API Tests](#post-api-tests)
     - [Profile Model Tests](#profile-model-tests)
     - [Running the Tests](#running-the-tests)
+  - [Python Validation](#python-validation)
 
 ##  Manual Testing
 
@@ -252,5 +253,110 @@ To run the tests, use the following command:
 ```bash
 python manage.py test
 ```
-
 This command will execute all the tests and provide a summary of the results.
+
+## Python Validation
+
+- **Tool Used:** [CI Python Linter](https://pep8ci.herokuapp.com/#)
+- **Purpose:** Analyzes Python source code to identify coding errors, enforce a coding standard, and look for code smells.
+- **Process:** Python code within the Fit&Fine application is analyzed with Pylint to ensure adherence to coding standards and to improve code quality.
+
+**Fit&Fine - FitandFine_DRF Project Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **settings.py**            | ![screenshot](documentation/validation/fitandfine/settings.JPG) | 0      | 6        |
+| **manage.py**              | ![screenshot](documentation/validation/fitandfine/manage.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/fitandfine/urls.JPG)     | 0      | 0        |
+| **views.py**               | ![screenshot](documentation/validation/fitandfine/views.JPG)    | 0      | 0        |
+| **serializers.py**                | ![screenshot](documentation/validation/fitandfine/serializers.JPG)     | 0      | 0        |
+| **permissions.py**               | ![screenshot](documentation/validation/fitandfine/permissions.JPG)    | 0      | 0        |
+| **wsgi.py**                | ![screenshot](documentation/validation/fitandfine/wsgi.JPG)     | 0      | 0        |
+| **asgi.py**                | ![screenshot](documentation/validation/fitandfine/asgi.JPG)     | 0      | 0        |
+
+**Fit&Fine - Profile Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/profile/profile_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/profile/profile_models.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/profile/profile_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/profile/profile_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/profile/profile_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/profile/profile_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/profile/profile_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Posts Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/posts/posts_views.JPG)    | 0      | 1        |
+| **models.py**              | ![screenshot](documentation/validation/posts/posts_models.JPG)   | 0      | 2        |
+| **urls.py**                | ![screenshot](documentation/validation/posts/posts_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/posts/posts_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/posts/posts_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/posts/posts_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/posts/posts_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Comments Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/comments/comments_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/comments/comments_models.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/comments/comments_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/comments/comments_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/comments/comments_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/comments/comments_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/comments/comments_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Daily Routine Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/dailyroutine/routine_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/dailyroutine/routine_models.JPG)   | 0      | 2        |
+| **urls.py**                | ![screenshot](documentation/validation/dailyroutine/routine_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/dailyroutine/routine_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/dailyroutine/routine_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/dailyroutine/routine_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/dailyroutine/routine_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Challenges Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/challenges/challenges_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/challenges/challenges_models.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/challenges/challenges_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/challenges/challenges_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/challenges/challenges_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/challenges/challenges_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/challenges/challenges_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Followers Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/followers/followers_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/followers/followers_models.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/followers/followers_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/followers/followers_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/followers/followers_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/followers/followers_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/followers/followers_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Likes Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/likes/likes_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/likes/likes_models.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/likes/likes_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/likes/likes_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/likes/likes_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/likes/likes_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/likes/likes_tests.JPG)    | 0      | 0        |
+
+**Fit&Fine - Collaborate Module Python Validation Results**
+| Python File                | Results Screenshots                                | Errors | Warnings |
+|----------------------------|----------------------------------------------------|--------|----------|
+| **views.py**               | ![screenshot](documentation/validation/collaborate/collaborate_views.JPG)    | 0      | 0        |
+| **models.py**              | ![screenshot](documentation/validation/collaborate/collaborate_models.JPG)   | 0      | 0        |
+| **urls.py**                | ![screenshot](documentation/validation/collaborate/collaborate_urls.JPG)     | 0      | 0        |
+| **admin.py**               | ![screenshot](documentation/validation/collaborate/collaborate_admin.JPG)    | 0      | 0        |
+| **apps.py**                | ![screenshot](documentation/validation/collaborate/collaborate_apps.JPG)     | 0      | 0        |
+| **serializers.py**         | ![screenshot](documentation/validation/collaborate/collaborate_serializers.JPG) | 0   | 0        |
+| **tests.py**               | ![screenshot](documentation/validation/collaborate/collaborate_tests.JPG)    | 0      | 0        |
