@@ -2,6 +2,7 @@ from django.test import TestCase
 from .models import About, Collaborate
 from django.utils import timezone
 
+
 class AboutModelTest(TestCase):
 
     def setUp(self):
@@ -34,11 +35,11 @@ class CollaborateModelTest(TestCase):
 
     def test_collaborate_creation(self):
         self.assertTrue(isinstance(self.collaborate, Collaborate))
-        self.assertEqual(self.collaborate.__str__(), 
+        self.assertEqual(self.collaborate.__str__(),
                          f"Collaboration request from {self.collaborate.name}")
 
     def test_collaborate_fields(self):
         self.assertEqual(self.collaborate.name, "John Doe")
         self.assertEqual(self.collaborate.email, "john.doe@example.com")
-        self.assertEqual(self.collaborate.message, 
+        self.assertEqual(self.collaborate.message,
                          "I would like to collaborate with your team.")
