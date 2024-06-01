@@ -43,6 +43,21 @@ The backend is implemented using Django Rest Framework API for the [Fit&Fine Web
   - [Storage and Image Handling](#storage-and-image-handling)
   - [Application Server](#application-server)
   - [Utility Libraries](#utility-libraries)
+- [Testing and Validation](#testing-and-validation)
+- [Bugs](#bugs)
+  - [Solved Bugs](#solved-bugs)
+  - [Known Bugs](#known-bugs)
+  - [Unknown Bugs](#unknown-bugs)
+- [Deployment](#deployment)
+  - [1. GitHub](#1-github)
+  - [2. Gitpod](#2-gitpod)
+  - [3. Heroku](#3-heroku)
+  - [4. ElephantSQL](#4-elephantsql)
+  - [5. Cloudinary](#5-cloudinary)
+  - [Deployment Steps](#deployment-steps)
+- [Cloning and Forking](#cloning-and-forking)
+  - [Cloning the Repository](#cloning-the-repository)
+  - [Forking the Repository](#forking-the-repository)
 
 ## Planning
 
@@ -380,3 +395,186 @@ The Fit&Fine project leverages a variety of frameworks, libraries, and dependenc
 
 This combination of frameworks, libraries, and dependencies ensures that Fit&Fine is robust, scalable, and secure, providing a seamless user experience for managing fitness routines and social interactions.
 
+## Testing and Validation
+
+For all testing and validation, please refer to the [TESTING.md](TESTING.md) file.
+
+## Bugs
+
+### Solved Bugs  
+
+| No. | Bug | Solved | Fix | Solution Credit |
+| --- | ---------------- | ---- | ------------- | -------------- | 
+| 1   | Error when trying to save profile pictures | Yes | Added media URL and root configurations in settings.py and ensured correct file path in the models.py | [Django Documentation](<https://docs.djangoproject.com/en/3.2/ref/settings/#media-root>) |
+| 2  | Comments not appearing under posts | Yes | Corrected the foreign key relationships and ensured the comment form was being properly handled in views.py | [StackOverflow](<https://stackoverflow.com/questions/18797740/foreign-key-is-not-updating>) |
+| 3   | Notifications not marking as read | Yes | Added logic to update notification status upon user interaction in views.py | [Django Project](<https://docs.djangoproject.com/en/3.2/topics/db/queries/#making-queries>) |
+| 4   | Daily routine activities not saving | Yes | Debugged the model save method and fixed form validation errors to ensure proper saving of activities | [Django Forms](<https://docs.djangoproject.com/en/3.2/topics/forms/>) |
+
+
+### Known Bugs
+
+| No. | Bug | Description | 
+| --- | ---- | ----------- | 
+| 1   | Post upload does not display any message | When users upload posts, the upload occasionally fails without displaying any error message or confirmation for the user. This lack of feedback can lead to confusion about whether the post was successfully uploaded. Debugging has focused on the post submission and response handling logic, but the problem persists intermittently. |
+
+### Unknown Bugs
+
+I am not aware of any remaining bugs.
+
+## Deployment
+
+The deployment process for Fit and Fine DRF API involves multiple platforms, including GitHub, Gitpod, Heroku, ElephantSQL, and Cloudinary. Below is a detailed explanation of how each platform fits into the deployment process along with the respective URLs for the platforms and services used in deploying and managing the Fit and Fine DRF API.
+
+### 1. GitHub
+
+**Purpose:** 
+- Version control and collaboration.
+
+**Process:**
+- The source code for Fit and Fine DRF API is hosted on GitHub. Developers can collaborate, track changes, and manage different versions of the application.
+- The repository is used as the central hub for the project, where all updates and changes are committed and pushed.
+
+**URL:**
+- [GitHub Repository](https://github.com)
+
+### 2. Gitpod
+
+**Purpose:**
+- Online IDE for development.
+
+**Process:**
+- Gitpod is used for development and testing. It provides a cloud-based development environment that is pre-configured with the necessary tools and dependencies.
+- Developers can open the GitHub repository in Gitpod and start coding immediately without worrying about local setup.
+
+**URL:**
+- [Gitpod Workspace](https://gitpod.io/)
+
+### 3. Heroku
+
+**Purpose:**
+- Platform as a Service (PaaS) for hosting the application.
+
+**Process:**
+- The Fit and Fine DRF API application is deployed on Heroku. Heroku manages the server, deployment, and scaling of the application.
+- Continuous deployment is set up from the GitHub repository to Heroku, ensuring that any changes pushed to the main branch are automatically deployed to the live site.
+
+**URL:**
+- [Heroku Dashboard](https://dashboard.heroku.com/)
+
+**Setting up on Heroku:**
+1. Create a new app on Heroku.
+2. Connect the Heroku app to the GitHub repository.
+3. Set up Config Vars in Heroku including `DATABASE_URL`, `SECRET_KEY`, `CLOUDINARY_URL`, `ALLOWED_HOST`  and `DISABLE_COLLECTSTATIC=1` (this is temporary and can be removed for the final deployment).
+4. Deploy the main branch using the Heroku dashboard or enable automatic deployments for every push to the main branch.
+
+**For deployment, Heroku needs two additional files in order to deploy properly:**
+- `requirements.txt`
+- `Procfile`
+
+You can install this project's requirements (where applicable) using:
+- `pip install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs to be updated using:
+- `pip freeze --local > requirements.txt`
+
+**The Procfile can be created with the following command:**
+- `echo web: gunicorn app_name.wsgi > Procfile`
+
+Then add these lines to Procfile
+
+`web: gunicorn app_name.wsgi`
+
+`release: python manage.py makemigrations && python manage.py migrate`
+
+Replace `app_name` with the name of your primary Django app name; the folder where `settings.py` is located.
+
+### 4. ElephantSQL
+
+**Purpose:**
+- Database as a Service for PostgreSQL.
+
+**Process:**
+- ElephantSQL provides the PostgreSQL database for the Fit and Fine DRF API application. The database is used to store all application data, including user information, posts, comments, and other relevant data.
+- Heroku is configured to use the ElephantSQL database through environment variables.
+
+**URL:**
+- [ElephantSQL Dashboard](https://customer.elephantsql.com/login)
+
+To obtain your own PostgreSQL Database, sign-up with your GitHub account, then follow these steps:
+1. Click **Create New Instance** to start a new database.
+2. Provide a name (commonly the name of the project: `fitandfine`).
+3. Select the **Tiny Turtle (Free)** plan.
+4. You can leave the **Tags** blank.
+5. Select the **Region** and **Data Center** closest to you.
+6. Once created, click on the new database name, where you can view the database URL and Password.
+
+### 5. Cloudinary
+
+**Purpose:**
+- Media management and storage.
+
+**Process:**
+- Cloudinary is used for storing and managing media files, such as images and videos uploaded by users.
+- The application is configured to upload media files directly to Cloudinary, where they are stored and served.
+
+**URL:**
+- [Cloudinary Dashboard](https://cloudinary.com/users/login)
+
+**Integration:**
+1. Set up a Cloudinary account.
+2. Configure the Cloudinary settings in the Django settings file with the API keys provided by Cloudinary.
+3. Use Django’s storage backend for Cloudinary to handle media uploads.
+
+### Deployment Steps
+
+1. **Clone the Repository:**
+   - Clone the GitHub repository to your local machine or open it in Gitpod for development.
+
+2. **Configure Environment Variables:**
+   - Set up the necessary environment variables in your local `.env` file or in the Heroku dashboard. These include database URL (ElephantSQL), Cloudinary API keys, and other sensitive information.
+
+3. **Install Dependencies:**
+   - Install the required dependencies using `pip install -r requirements.txt`.
+
+4. **Run Migrations:**
+   - Apply database migrations using `python manage.py migrate` to set up the PostgreSQL database schema.
+
+5. **Test the Application:**
+   - Run the application locally or in Gitpod to ensure it works as expected.
+
+6. **Deploy to Heroku:**
+   - Push the changes to the GitHub repository, which triggers the continuous deployment to Heroku.
+   - Ensure that the Heroku app is properly configured with the necessary environment variables and add-ons (such as ElephantSQL).
+
+7. **Manage Media Files:**
+   - Configure Cloudinary in the Django settings and ensure that media files are uploaded and managed correctly.
+
+## Cloning and Forking
+
+### Cloning the Repository
+
+**Local Setup:**
+1. Clone the repository: [GitHub repository](https://github.com/SwathiKeshavamurthy/FitandFine-P5). 
+   - `git clone https://github.com/SwathiKeshavamurthy/FitandFine-P5`
+2. Navigate into the project directory: `cd fitandfine_drf`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Set up local environment variables in a `.env` file.
+5. Run migrations: `python manage.py makemigrations`and`python manage.py migrate`
+6. Start the development server: `python manage.py runserver`
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/SwathiKeshavamurthy/FitandFine-P5)
+
+Please note that in order to directly open the project in Gitpod, you need to have the browser extension installed.
+A tutorial on how to do that can be found [here](https://www.gitpod.io/docs/configure/user-settings/browser-extension).
+
+### Forking the Repository
+
+**For Contributions:**
+1. Fork the repository on [GitHub repository](https://github.com/SwathiKeshavamurthy/FitandFine-P5).
+2. Clone your forked repository to your local machine.
+3. Follow the local setup steps as above.
+4. Make changes and push them back to your fork.
+5. Create a pull request from your fork back to the original repo.
+
+By following these steps and utilizing the aforementioned platforms, the deployment and management of the Fit and Fine DRF API application are streamlined and efficient, ensuring a robust and scalable application.
