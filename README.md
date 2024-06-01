@@ -58,6 +58,10 @@ The backend is implemented using Django Rest Framework API for the [Fit&Fine Web
 - [Cloning and Forking](#cloning-and-forking)
   - [Cloning the Repository](#cloning-the-repository)
   - [Forking the Repository](#forking-the-repository)
+- [Credits](#credits)
+  - [Code](#code)
+- [Media](#media)
+- [Acknowledgements](#acknowledgements)
 
 ## Planning
 
@@ -578,3 +582,40 @@ A tutorial on how to do that can be found [here](https://www.gitpod.io/docs/conf
 5. Create a pull request from your fork back to the original repo.
 
 By following these steps and utilizing the aforementioned platforms, the deployment and management of the Fit and Fine DRF API application are streamlined and efficient, ensuring a robust and scalable application.
+
+## Credits
+
+### Code
+
+The development of the Fit and Fine application was supported by various resources and contributions from the community. Here are the key references and sources of inspiration for the Fit and Fine project:
+
+- The technique to limit the size of image uploads to Cloudinary is adapted from this [Cloudinary Support Article](https://support.cloudinary.com/hc/en-us/community/posts/360009752479-How-to-resize-before-uploading-pictures-in-Django).
+- A replacement for the deprecated `django.conf.urls.url()` was implemented as per this [StackOverflow Article](https://stackoverflow.com/questions/70319606/importerror-cannot-import-name-url-from-django-conf-urls-after-upgrading-to).
+- How to access URL arguments as kwargs in generic APIViews is from this [StackOverflow Article](https://stackoverflow.com/questions/51042871/how-to-access-url-kwargs-in-generic-api-views-listcreateapiview-to-be-more-spec).
+- The fix for the Django Rest Framework bug that prevents user's cookies from being cleared on logout is from the Code Institute Django Rest Framework walkthrough project.
+- The technique for overriding the `to_representation` method of a serializer to make a change to the outgoing JSON data used in `profiles/serializers.py` is from this [testdriven.io Tip](https://testdriven.io/tips/ed79fa08-6834-4827-b00d-2609205129e0/).
+- The method to set up user authentication with JWT in Django Rest Framework is adapted from this [StackOverflow Article](https://stackoverflow.com/questions/44697872/django-rest-framework-jwt-user-login).
+- The technique to handle file uploads in Django Rest Framework is from this [StackOverflow Article](https://stackoverflow.com/questions/45232352/file-upload-with-django-rest-framework).
+- The method to test Django Rest Framework endpoints using the APIClient is adapted from this [Django Rest Framework Documentation](https://www.django-rest-framework.org/api-guide/testing/).
+
+In addition, the following documentation was extensively referenced throughout development:
+
+- [Django Documentation](https://www.djangoproject.com)
+- [Django Rest Framework Documentation](https://www.django-rest-framework.org)
+- [django-filter Documentation](https://django-filter.readthedocs.io/en/stable/)
+- [django-recurrence Documentation](https://django-recurrence.readthedocs.io/en/latest/)
+- [Python datetime Documentation](https://docs.python.org/3/library/datetime.html)
+- [dateutil Documentation](https://dateutil.readthedocs.io/en/stable/index.html)
+- [Django Rest Framework JWT Documentation](https://jpadilla.github.io/django-rest-framework-jwt/)
+
+These resources provided invaluable insights and guidance, significantly contributing to the successful development of the Fit and Fine DRF API application.
+
+## Media
+
+The following sites were used to gather the photographic media used:
+- [Freepik](https://www.freepik.com/)
+
+## Acknowledgements
+
+- Many thanks to **my husband and son** for their continued support.
+- Thank you to my Code Institute mentor, Cohort facilitator at Code Institute for their positive support, guidance and advice.
