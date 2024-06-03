@@ -60,7 +60,7 @@ The backend is implemented using Django Rest Framework API for the [Fit&Fine Web
   - [Forking the Repository](#forking-the-repository)
 - [Credits](#credits)
   - [Code](#code)
-- [Media](#media)
+  - [Media](#media)
 - [Acknowledgements](#acknowledgements)
 
 ## Planning
@@ -610,7 +610,7 @@ In addition, the following documentation was extensively referenced throughout d
 
 These resources provided invaluable insights and guidance, significantly contributing to the successful development of the Fit and Fine DRF API application.
 
-## Media
+### Media
 
 The following sites were used to gather the photographic media used:
 - [Freepik](https://www.freepik.com/)
