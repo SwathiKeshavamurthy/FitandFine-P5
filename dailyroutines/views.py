@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from .models import DailyRoutine
 from .serializers import DailyRoutineSerializer
 from fitandfine_drf.permissions import IsOwnerOrReadOnly
