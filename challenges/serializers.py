@@ -20,7 +20,8 @@ class ChallengeSerializer(serializers.ModelSerializer):
         model = Challenge
         fields = [
             'id', 'owner', 'title', 'description', 'start_date', 'end_date',
-            'image', 'sport', 'created_at', 'updated_at', 'is_joined', 'joined_at'
+            'image', 'sport', 'created_at', 'updated_at', 'is_joined',
+            'joined_at'
         ]
         extra_kwargs = {
             'sport': {'required': True},
