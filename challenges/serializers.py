@@ -55,6 +55,8 @@ class ChallengeSerializer(serializers.ModelSerializer):
 
 
 class ChallengeParticipantSerializer(serializers.ModelSerializer):
+    joined_at = serializers.DateTimeField(format="%Y-%m-%d", read_only=True)
+
     class Meta:
         model = ChallengeParticipant
-        fields = '__all__'
+        fields = ['id', 'challenge', 'user', 'joined_at']
