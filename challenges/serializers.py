@@ -4,16 +4,23 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+class ChallengeParticipantSerializer(serializers.ModelSerializer):
+    joined_at = serializers.DateTimeField(format="%Y-%m-%d", read_only=True)
+
+    class Meta:
+        model = ChallengeParticipant
+        fields = ['id', 'challenge', 'user', 'joined_at']
 
 class ChallengeSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_joined = serializers.SerializerMethodField()
+    joined_at = serializers.SerializerMethodField()
 
     class Meta:
         model = Challenge
         fields = [
             'id', 'owner', 'title', 'description', 'start_date', 'end_date',
-            'image', 'sport', 'created_at', 'updated_at', 'is_joined'
+            'image', 'sport', 'created_at', 'updated_at', 'is_joined', 'joined_at'
         ]
         extra_kwargs = {
             'sport': {'required': True},
@@ -26,6 +33,16 @@ class ChallengeSerializer(serializers.ModelSerializer):
                 challenge=obj, user=request.user
             ).exists()
         return False
+
+    def get_joined_at(self, obj):
+        request = self.context.get('request', None)
+        if request and request.user.is_authenticated:
+            participant = ChallengeParticipant.objects.filter(
+                challenge=obj, user=request.user
+            ).first()
+            if participant:
+                return participant.joined_at
+        return None
 
     def validate_sport(self, value):
         """
@@ -52,11 +69,3 @@ class ChallengeSerializer(serializers.ModelSerializer):
                 'Image width larger than 4096px!'
             )
         return value
-
-
-class ChallengeParticipantSerializer(serializers.ModelSerializer):
-    joined_at = serializers.DateTimeField(format="%Y-%m-%d", read_only=True)
-
-    class Meta:
-        model = ChallengeParticipant
-        fields = ['id', 'challenge', 'user', 'joined_at']
