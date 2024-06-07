@@ -62,6 +62,9 @@ The backend is implemented using Django Rest Framework API for the [Fit&Fine Web
   - [Code](#code)
   - [Media](#media)
 - [Acknowledgements](#acknowledgements)
+  - [Inspiration](#inspiration)
+  - [Project Guidance](#project-guidance)
+  - [Personal Thanks](#personal-thanks)
 
 ## Planning
 
@@ -617,5 +620,18 @@ The following sites were used to gather the photographic media used:
 
 ## Acknowledgements
 
-- Many thanks to **my husband and son** for their continued support.
-- Thank you to my Code Institute mentor, Cohort facilitator at Code Institute for their positive support, guidance and advice.
+The development of Fit&Fine has been an exciting journey, and I am grateful for the inspiration, guidance, and resources that have contributed to the project. 
+
+### Inspiration
+- **Strava**: The idea for Fit&Fine was inspired by [Strava](https://www.strava.com/), a leading platform for fitness enthusiasts to track their activities, compete with others, and share their fitness journeys. Strava's robust features and community-centric approach motivated me to create a similar platform focused on comprehensive fitness tracking and community engagement.
+
+### Project Guidance
+**Moments DJANGO REST DRF API and Moments REACT Walkthrough Project** I utilized the Moments Walkthrough Project as a foundational guide. This project provided valuable insights into structuring the application, implementing various features, and ensuring a seamless user experience.
+The Moments project had several ideas and functionalities similar to what I envisioned for Fit&Fine, which helped streamline my development process.
+
+
+### Personal Thanks
+- Many thanks to **my husband** for his incredible support and encouragement throughout this journey.
+- My heartfelt gratitude to **my son**, who is 18 months old, for bringing joy and motivation into my life.
+- Thanks to **Kristyna, Cohort facilitator** at Code Institute, for always being there to provide all the information needed and for keeping the positive energy up.
+- Thanks to  my Code Institute **mentor** and my **fellow students** for constantly inspiring me on Slack and being there for each other to help in times of trouble.
